@@ -6,10 +6,15 @@ class Trial {
 
     public String nama;
     public String npm;
+    
+    public Scanner s;
+
+    public Trial() {
+        s = new Scanner(System.in);
+    }
 
     public void Thread() {
-        Scanner s = new Scanner(System.in);
-        Thread jeda = new Thread();
+        Thread thread = new Thread();
 
         System.out.print("Input Nama : ");
         nama = s.nextLine();
@@ -19,15 +24,15 @@ class Trial {
         try {
             for (int i = 0; i < nama.length(); i++) {
                 System.out.print(nama.charAt(i));
-                jeda.sleep(1000);
+                thread.sleep(1000);
             }
             System.out.print(" ");
             for (int j = 0; j < npm.length(); j++) {
                 System.out.print(npm.charAt(j));
-                jeda.sleep(1000);
+                thread.sleep(1000);
             }
         } catch (InterruptedException e) {
-
+            System.err.println(e);
         }
     }
 }
